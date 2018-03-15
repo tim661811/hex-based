@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Resource : MonoBehaviour 
+public class Resource : Ownable
 {
     public int Amount;
     public int StartingAmount;

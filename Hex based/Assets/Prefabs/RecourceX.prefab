@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8954023ec3a2747f29797e3083581915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   Amount: 0
   StartingAmount: 0
   OnValueChanged:
@@ -260,5 +261,5 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 12, y: 0}
-  m_SizeDelta: {x: 96.9, y: 30}
+  m_SizeDelta: {x: 145.9, y: 30}
   m_Pivot: {x: 0, y: 0.5}

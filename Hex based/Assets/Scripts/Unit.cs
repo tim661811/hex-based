@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
+public class Unit : Ownable {
     
-
     public List<Hex> currentPath = null;
 
     public int posX, posY;
@@ -14,22 +13,35 @@ public class Unit : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         destination = transform.position;
-	}
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        //if (Vector3.Distance(transform.position,destination)>0.05)
-        //{
-        //    transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime * 2);
-        //}
-        //else
-        //{
-        //    if (transform.position != destination)
-        //    {
-        //        transform.position = destination;
-        //    }
-        //}
-	}
+        if (currentPath.Count > 0)
+        {
+            if (Vector3.Distance(transform.position, currentPath[1].transform.position) > 0.05)
+            {
+                transform.position = Vector3.Lerp(transform.position, currentPath[1].transform.position, Time.deltaTime * 2);
+            }
+            else
+            {
+                if (transform.position != currentPath[1].transform.position)
+                {
+                    transform.position = currentPath[1].transform.position;
+                    if (currentPath.Count == 2)
+                    {
+                        currentPath.Clear();
+                    }
+                    else
+                    {
+                        currentPath.RemoveAt(0);
+                    }
+                    
+                }
+            }
+        }
+        
+    }
 
     private void Update()
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitFactory : MonoBehaviour
+public class UnitFactory : Ownable
 {
-
+    
     public Unit Prototype;
 
     public int x;
@@ -41,6 +41,7 @@ public class UnitFactory : MonoBehaviour
             Hex hex = mapGenerator.instance.getHexInMap(x, y);
             newUnit.posX = x;
             newUnit.posY = y;
+            newUnit.owner = owner;
 
             newUnit.transform.SetParent(hex.transform, false);
         }
